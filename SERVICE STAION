@@ -1,0 +1,73 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the type of car (Hatchback, Sedan, SUV):");
+        String carType = sc.nextLine();
+
+        System.out.println("Enter the service codes separated by a comma (BS01, EF01, CF01, BF01, GF01):");
+        String[] serviceCodes = sc.nextLine().split(",");
+
+        int totalBill = 0;
+        for (String code : serviceCodes) {
+
+            switch (code) {
+                case "BS01":
+                    if (carType.equalsIgnoreCase("Hatchback")) {
+                        totalBill += 2000;
+                    } else if (carType.equalsIgnoreCase("Sedan")) {
+                        totalBill += 4000;
+                    } else if (carType.equalsIgnoreCase("SUV")) {
+                        totalBill += 5000;
+                    }
+                    break;
+                case "EF01":
+                    if (carType.equalsIgnoreCase("Hatchback")) {
+                        totalBill += 5000;
+                    } else if (carType.equalsIgnoreCase("Sedan")) {
+                        totalBill += 8000;
+                    } else if (carType.equalsIgnoreCase("SUV")) {
+                        totalBill += 10000;
+                    }
+                    break;
+                case "CF01":
+                    if (carType.equalsIgnoreCase("Hatchback")) {
+                        totalBill += 2000;
+                    } else if (carType.equalsIgnoreCase("Sedan")) {
+                        totalBill += 4000;
+                    } else if (carType.equalsIgnoreCase("SUV")) {
+                        totalBill += 6000;
+                    }
+                    break;
+                case "BF01":
+                    if (carType.equalsIgnoreCase("Hatchback")) {
+                        totalBill += 1000;
+                    } else if (carType.equalsIgnoreCase("Sedan")) {
+                        totalBill += 1500;
+                    } else if (carType.equalsIgnoreCase("SUV")) {
+                        totalBill += 2500;
+                    }
+                    break;
+                case "GF01":
+                    if (carType.equalsIgnoreCase("Hatchback")) {
+                        totalBill += 3000;
+                    } else if (carType.equalsIgnoreCase("Sedan")) {
+                        totalBill += 6000;
+                    } else if (carType.equalsIgnoreCase("SUV")) {
+                        totalBill += 8000;
+                    }
+                    break;
+                default:
+                    System.out.println("Invalid service code: " + code);
+                    break;
+            }
+        }
+
+        System.out.println("Total bill: ₹ " + totalBill);
+        if (totalBill > 10000) {
+            System.out.println("Complimentary cleaning provided.");
+        }
+
+    }
+}
